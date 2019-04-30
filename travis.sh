@@ -56,3 +56,5 @@ catkin_lint -W3 .
 catkin_make_isolated
 
 # Test
+catkin_make run_tests
+catkin_test_results
