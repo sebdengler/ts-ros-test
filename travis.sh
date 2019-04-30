@@ -7,15 +7,17 @@ if ! [ "$IN_DOCKER" ]; then
   docker pull $DOCKER_IMAGE
 
   docker run \
-  -e IN_DOCKER=true \
-  -e TRAVIS_BRANCH \
-  -e TRAVIS_BUILD_DIR \
-  -v $(pwd):/root/$(basename $PWD) \
-  -v $HOME/.ccache:/root/.ccache \
-  -w /root/$(basename $PWD) \
-  -t \
-  $DOCKER_IMAGE /root/$(basename $PWD)/./$SCRIPT
+    -e IN_DOCKER=true \
+    -e TRAVIS_BRANCH \
+    -e TRAVIS_BUILD_DIR \
+    -v $(pwd):/root/$(basename $PWD) \
+    -v $HOME/.ccache:/root/.ccache \
+    -w /root/$(basename $PWD) \
+    -t \
+    $DOCKER_IMAGE /root/$(basename $PWD)/./$SCRIPT
+  result=$?
 
+  echo "docker finished"
   exit
 fi
 
