@@ -17,6 +17,12 @@ if ! [ "$IN_DOCKER" ]; then
     $DOCKER_IMAGE /root/$(basename $PWD)/./$SCRIPT
   result=$?
 
+  case $result in
+    0) echo -e $(colorize GREEN "Travis script finished successfully");;
+    1) echo -e $(colorize RED "Travis script failed at catkin_lint");;
+    2) echo -e $(colorize RED "Travis script failed at catkin_make_isolated");;
+    3) echo -e $(colorize RED "Travis script failed at catkin_make run_tests");;
+    4) echo -e $(colorize RED "Travis script failed at catkin_test_results");;
   exit $result
 fi
 
