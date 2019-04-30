@@ -54,8 +54,8 @@ cd ../..
 catkin_lint -W3 . || exit 1
 
 # Make
-catkin_make_isolated || exit 1
+catkin_make_isolated || exit 2
 
 # Test
-catkin_make run_tests || exit 1
-catkin_test_results || exit 1
+catkin_make run_tests || exit 3
+catkin_test_results || exit 4
