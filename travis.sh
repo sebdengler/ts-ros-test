@@ -61,7 +61,6 @@ catkin_lint -W3 . || exit 1
 
 # Make
 catkin_make_isolated || exit 2
-ccache -s
 
 # Test
 catkin_make run_tests || exit 3
