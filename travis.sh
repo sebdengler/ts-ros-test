@@ -17,7 +17,7 @@ if ! [ "$IN_DOCKER" ]; then
     $DOCKER_IMAGE /root/$(basename $PWD)/./$SCRIPT
   result=$?
 
-  #echo "r2 = $result"
+  echo "r2 = $result"
   exit
 fi
 
@@ -55,7 +55,7 @@ cd ../..
 catkin_lint -W3 .
 
 # Make
-catkin_make_isolated
+catkin_make_isolated || exit 1
 
 # Test
 #catkin_make run_tests
