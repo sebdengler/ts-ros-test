@@ -17,7 +17,7 @@ if ! [ "$IN_DOCKER" ]; then
     $DOCKER_IMAGE /root/$(basename $PWD)/./$SCRIPT
   result=$?
 
-  echo "docker finished"
+  echo $result
   exit
 fi
 
