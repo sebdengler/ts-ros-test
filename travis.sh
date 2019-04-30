@@ -40,10 +40,7 @@ echo "##############################################"
 
 # Setup ROS
 source /opt/ros/$(ls /opt/ros/)/setup.bash
-#export CCACHE_DIR=/root/ccache
-#apt-get -qq install ccache
-#export PATH=/usr/lib/ccache:$PATH
-
+export CCACHE_DIR=/root/ccache
 
 # Prepare workspace
 PROJECT_NAME="testing"
