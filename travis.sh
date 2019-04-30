@@ -23,6 +23,7 @@ if ! [ "$IN_DOCKER" ]; then
     2) echo -e $(colorize RED "Travis script failed at catkin_make_isolated");;
     3) echo -e $(colorize RED "Travis script failed at catkin_make run_tests");;
     4) echo -e $(colorize RED "Travis script failed at catkin_test_results");;
+  esac
   exit $result
 fi
 
