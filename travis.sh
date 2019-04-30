@@ -18,11 +18,11 @@ if ! [ "$IN_DOCKER" ]; then
   result=$?
 
   case $result in
-    0) echo -e $(colorize GREEN "Travis script finished successfully");;
-    1) echo -e $(colorize RED "Travis script failed at catkin_lint");;
-    2) echo -e $(colorize RED "Travis script failed at catkin_make_isolated");;
-    3) echo -e $(colorize RED "Travis script failed at catkin_make run_tests");;
-    4) echo -e $(colorize RED "Travis script failed at catkin_test_results");;
+    0) tput setaf 2; echo "Travis script finished successfully");;
+    1) tput setaf 1; echo "Travis script failed at catkin_lint");;
+    2) tput setaf 1; echo "Travis script failed at catkin_make_isolated");;
+    3) tput setaf 1; echo "Travis script failed at catkin_make run_tests");;
+    4) tput setaf 1; echo "Travis script failed at catkin_test_results");;
   esac
   exit $result
 fi
@@ -40,7 +40,9 @@ echo "##############################################"
 
 # Setup ROS
 source /opt/ros/$(ls /opt/ros/)/setup.bash
-export CCACHE_DIR=/root/ccache
+#export CCACHE_DIR=/root/ccache
+apt-get -qq install ccache
+export PATH=/usr/lib/ccache:$PATH
 
 
 # Prepare workspace
