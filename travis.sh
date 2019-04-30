@@ -41,7 +41,7 @@ echo "##############################################"
 # Setup ROS
 source /opt/ros/$(ls /opt/ros/)/setup.bash
 #export CCACHE_DIR=/root/ccache
-apt-get -qq install ccache
+#apt-get -qq install ccache
 export PATH=/usr/lib/ccache:$PATH
 
 
@@ -64,6 +64,7 @@ catkin_lint -W3 . || exit 1
 
 # Make
 catkin_make_isolated || exit 2
+ccache -s
 
 # Test
 catkin_make run_tests || exit 3
