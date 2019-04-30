@@ -42,7 +42,7 @@ echo "##############################################"
 source /opt/ros/$(ls /opt/ros/)/setup.bash
 #export CCACHE_DIR=/root/ccache
 #apt-get -qq install ccache
-export PATH=/usr/lib/ccache:$PATH
+#export PATH=/usr/lib/ccache:$PATH
 
 
 # Prepare workspace
