@@ -52,13 +52,11 @@ cd ../..
 
 
 # Lint
-catkin_lint -W3 .
+catkin_lint -W3 . || exit 1
 
 # Make
 catkin_make_isolated || exit 1
 
 # Test
-#catkin_make run_tests
-#catkin_test_results
-
-#echo "r1 = $result"
+catkin_make run_tests || exit 1
+catkin_test_results || exit 1
