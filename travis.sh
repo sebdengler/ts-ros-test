@@ -18,7 +18,7 @@ if ! [ "$IN_DOCKER" ]; then
   result=$?
 
   echo "r2 = $result"
-  exit
+  exit $result
 fi
 
 
